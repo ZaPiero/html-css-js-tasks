@@ -35,20 +35,22 @@ function store(todoText) {
 }
  
 function getValues() {
-    var localStorageItems = localStorage.getItem("Todos")
-    if (localStorageItems != null){
-    	try{
-    	    //get items from localstorage
-            items = JSON.parse(localStorageItems);
-        } catch (err) {}
-    }
- 	//now loop through array elements
+                var localStorageItems = localStorage.getItem("Todos")
+                if (localStorageItems != null){
+                try {
+                                //get items from localstorage
+                items = JSON.parse(localStorageItems);
+                } catch (err) {}
+                }
+ 
+    //now loop through array elements
     if (items != null && items.length > 0) {
         for (var i = 0, len = items.length; i < len; i++) {
             $("ul").append("<li><span class='todofront'><i class='fa fa-trash-o' aria-hidden='true'></i> </span><span class='todovalue'>" + items[i] + "</span></li>");
         }
     }
 }
+ 
 //search item to be removed
 function removeValue(search_term) {
     if (items != null && items.length > 0) {
